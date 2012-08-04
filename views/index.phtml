@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Pig Latin Translator</title>
+    </head>
+    <body>
+        <form method="post" action="index.php">
+            <fieldset>
+                <legend>Input</legend>
+            <p>
+
+                <textarea rows="20" cols="80" id="text" name="text"><?php echo isset($translation) ? $translation : $defaultInput ?></textarea>
+            </p>
+            </fieldset>
+            <fieldset>
+                <legend>From Language</legend>
+                <p>
+                    <label for="lang_en">English</label>
+                    <input type="radio"  <?php echo $request->isPostRequest() && $request->getPostParam('language') == 'en' ? 'checked="checked"' : '' ?> name="language" id="lang_en" value="en"/>
+                    <label for="lang_pl">Pig Latin</label>
+                    <input type="radio" <?php echo $request->isPostRequest() && $request->getPostParam('language') == 'pl' ? 'checked="checked"' : '' ?> name="language" id="lang_pl" value="pl"/>
+                </p>
+            </fieldset>
+            <input type="submit" value="Translate" />
+        </form>
+
+
+    </body>
+</html>
